@@ -148,6 +148,7 @@ def train_classifier(
     the human-readable label names — Integration 7A reads them from
     `model.config.id2label` rather than hard-coding.
     """
+    set_seed(training_args.seed)
     model = AutoModelForSequenceClassification.from_pretrained(
         model_name,
         num_labels = num_labels,
