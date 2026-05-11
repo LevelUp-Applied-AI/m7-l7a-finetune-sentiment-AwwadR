@@ -254,7 +254,13 @@ def main() -> None:
     tokenized.set_format("torch", columns=["input_ids", "attention_mask", "label"])
 
     if os.environ.get("DATA_PATH") is not None:
-        training_args = make_training_args(output_dir, epochs=5)
+        training_args = make_training_args(
+            output_dir,
+            lr=2e-4,
+            epochs=20,
+            batch_size=4,
+            seed=42
+        )
     else:
         training_args = make_training_args(output_dir)
         
