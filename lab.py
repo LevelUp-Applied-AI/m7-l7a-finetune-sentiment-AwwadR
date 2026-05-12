@@ -26,6 +26,7 @@ from transformers import (
     DataCollatorWithPadding,
     Trainer,
     TrainingArguments,
+    set_seed,
 )
 
 
@@ -148,6 +149,7 @@ def train_classifier(
     the human-readable label names — Integration 7A reads them from
     `model.config.id2label` rather than hard-coding.
     """
+    set_seed(training_args.seed)
     model = AutoModelForSequenceClassification.from_pretrained(
         model_name,
         num_labels = num_labels,
@@ -252,7 +254,13 @@ def main() -> None:
     tokenized.set_format("torch", columns=["input_ids", "attention_mask", "label"])
 
     if os.environ.get("DATA_PATH") is not None:
-        training_args = make_training_args(output_dir, epochs=5)
+        training_args = make_training_args(
+            output_dir,
+            lr=2e-4,
+            epochs=20,
+            batch_size=4,
+            seed=42
+        )
     else:
         training_args = make_training_args(output_dir)
         
