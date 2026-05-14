@@ -1,0 +1,33 @@
+id,hypothesis_category,text,expected_label,rationale
+1,negation,The latest update did not improve battery life at all.,negative,Tests whether the model picks up the negation cue or just the trigger word 'improve'
+2,lexical_trigger,This app is no longer reliable on my phone.,negative,Strong positive cue 'reliable' negated by 'no longer'; tests cue-vs-context handling
+3,domain_shift,The team won the championship final last weekend.,neutral,Sports content unrelated to app-review training; tests domain-shift robustness
+4,negation,I do not love the new layout anymore.,negative,Uses negation before a strong positive cue 'love' to test whether the model follows the negation.
+5,negation,The update is not helpful and made the app harder to use.,negative,Uses 'not helpful' to test whether the model catches the negative meaning instead of the positive cue.
+6,negation,I cannot say this app is bad after the latest fix.,positive,Uses negation cue 'bad' to test whether the model can flip polarity.
+7,negation,The app is not perfect but it works well for my daily tasks.,positive,Uses 'not perfect' with an overall positive meaning to test mixed negation handling.
+8,negation,I do not have any serious complaints about this version.,positive,Uses negation around 'complaints' to test if the model mistakes the negative word for negative sentiment.
+9,lexical_trigger,The app looks beautiful but crashes every time I open it.,negative,Contains positive cue 'beautiful' but the real sentiment is negative because the app crashes.
+10,lexical_trigger,"Great design, terrible performance.",negative,Uses strong positive cue 'great' followed by a stronger negative complaint.
+11,lexical_trigger,"I loved the old version, but this update ruined it.",negative,Contains positive cue 'loved' while the sentence is negative about the current app.
+12,lexical_trigger,"The support team is friendly, but they never solve the issue.",negative,Contains positive cue 'friendly' but the unresolved issue makes the review negative.
+13,lexical_trigger,"The app is fast, but the payment fails every time.",negative,Contains positive cue 'fast' while the main functional complaint is negative.
+14,lexical_trigger,This is reliable only when I do not actually need it.,negative,Uses positive cue 'reliable' in a sarcastic negative context.
+15,domain_shift,The recipe needs more salt and ten minutes in the oven.,neutral,Recipe content is outside app reviews and should not imply app sentiment.
+16,domain_shift,The stock market closed higher after strong technology earnings.,neutral,News-style sentence tests whether business words trigger sentiment labels.
+17,domain_shift,The player scored twice before halftime.,neutral,Sports sentence is unrelated to app quality and should be neutral.
+18,domain_shift,Heavy rain is expected across the northern region tomorrow.,neutral,Weather sentence tests domain shift away from app-review language.
+19,domain_shift,The museum opened a new exhibition about ancient trade routes.,neutral,Cultural news sentence is outside app-review sentiment.
+20,domain_shift,The laptop has sixteen gigabytes of memory and a silver keyboard.,neutral,Product specification sentence should be neutral rather than positive or negative.
+21,length_extreme,Works great.,positive,Very short review tests whether the model can classify minimal positive text.
+22,length_extreme,Crashes constantly.,negative,Very short review tests whether the model can classify minimal negative text.
+23,length_extreme,It is okay.,neutral,Very short review tests whether the model can handle weak neutral sentiment.
+24,length_extreme,"I installed the app after the update and at first it opened normally, but after I changed the settings, added my account, enabled notifications, and tried to use the main feature, it became slower, froze twice, and made the whole experience frustrating.",negative,Long sentence with several details tests whether the model keeps track of the main negative conclusion.
+25,length_extreme,"I used the app for a full week, and although there were a few small delays when switching screens, the reminders worked, the interface was clear, and it helped me finish my tasks more consistently.",positive,Long mixed sentence tests whether the model captures the overall positive conclusion.
+26,length_extreme,"The app has a menu, a profile page, notification settings, and a search button.",neutral,Longer descriptive sentence lists features without clear sentiment.
+27,sarcasm,"Amazing, another crash right when I needed the app most.",negative,Surface word 'Amazing' is positive but the intended meaning is negative sarcasm.
+28,sarcasm,"Perfect, now I get to restart the app every five minutes.",negative,Positive cue 'Perfect' is used sarcastically with a negative complaint.
+29,sarcasm,"Great, the app deleted my progress again.",negative,Positive cue 'Great' is sarcastic because the app caused data loss.
+30,sarcasm,I just love waiting forever for a simple page to load.,negative,Positive phrase 'love' is sarcastic because the waiting complaint is negative.
+31,sarcasm,"Wonderful, now the app freezes every time I try to check my account.",negative,Positive cue 'Wonderful' is used sarcastically because the app freezing is a negative experience.
+32,sarcasm,"Lovely, another update that removed the only feature I actually used.",negative,Positive cue 'Lovely' is sarcastic because the update removed an important feature.
